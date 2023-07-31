@@ -1,6 +1,6 @@
 <a name="wiki-top"></a>
 <p align="center">
-<a href='https://api-for-mern-app.onrender.com/' target="_blank"><img src='https://github.com/AuraSp/MERN-crud/blob/main/public/Stack.png' width='300' height='300' alt='API logo' /></a>
+<a href='https://api-for-mern-app.onrender.com/' target="_blank"><img src='https://github.com/AuraSp/MERN-crud/blob/main/public/API_gateway_for_MongoDB.png' width='300' height='300' alt='API logo' /></a>
 </p>
 <h3 align='center'>Custom API gateway</h3>
 <p align='center'>Centralized handling of API communication between <b><i>Server side</i></b> and <b><i>Client side</i></b></p>
