@@ -7,7 +7,7 @@ const app = require("./app");
 const PORT = 5000;
 
 mongoose
-    .connect(process.env.MONGO_URI, {
+    .connect(process.env.NODE_ENV == 'production' ? process.env.PROD_MONGO_URI : process.env.DEV_MONGO_URI, {
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: false,
@@ -22,7 +22,7 @@ mongoose
 
 
 
-app.listen(process.env.NODE_ENV == 'production' ? process.env.SERVER_PORT : PORT, function (err) {
+app.listen(process.env.NODE_ENV == 'production' ? process.env.PROD_SERVER_PORT : PORT, function (err) {
     if (err) {
         logger.log({
             level: 'error',
@@ -31,7 +31,7 @@ app.listen(process.env.NODE_ENV == 'production' ? process.env.SERVER_PORT : PORT
     } else {
         logger.log({
             level: 'info',
-            message: `\u001b[1;37mApp is running on ${process.env.NODE_ENV == 'production' ? process.env.SERVER_PORT : PORT}`,
+            message: `\u001b[1;37mApp is running on ${process.env.NODE_ENV == 'production' ? process.env.PROD_SERVER_PORT : PORT}`,
         });
     };
 })

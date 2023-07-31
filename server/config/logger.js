@@ -23,7 +23,7 @@ const logger = winston.createLogger({
 
         //Saving logs into MongoDb
         winston.add(new winston.transports.MongoDB({
-            db: `${process.env.MONGO_URI}`,
+            db: `${process.env.NODE_ENV == 'production' ? process.env.PROD_MONGO_URI : process.env.DEV_MONGO_URI}`,
             collection: 'logs',
             options: { useUnifiedTopology: true }
         }

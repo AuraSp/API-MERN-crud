@@ -7,7 +7,7 @@ const teachersRoutes = require("./routes/teachersRoutes");
 const app = express();
 
 app.use(cors({
-origin: [process.env.PROXY_URI]
+origin: [process.env.NODE_ENV == 'production' ? process.env.PROD_ROXY_URI : process.env.DEV_PROXY_URI]
 }));
 
 app.use(express.json());
@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
     res.send(`
     <h2>API is working and silently waiting to be called</h2>
     <h4>Check objects in json format:</h4>
-    <a href="${process.env.PROXY_URI}api/v2/students">Students Archive Object</a> <a href="${process.env.PROXY_URI}api/v2/teachers">Teachers Archive Object</a>`);
+    <a href="${process.env.NODE_ENV == 'production' ? process.env.PROD_PROXY_URI : process.env.DEV_PROXY_URI}api/v2/students">Students Archive Object</a> <a href="${process.env.NODE_ENV == 'production' ? process.env.PROD_PROXY_URI : process.env.DEV_PROXY_URI}api/v2/teachers">Teachers Archive Object</a>`);
 })
 
 app.use(function (req, res, next) {
